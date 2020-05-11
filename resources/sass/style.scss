@@ -1,0 +1,41 @@
+                        
+/*	.sidebar.dropdown-menu {
+		position: relative !important;
+		transform: translate3d(0px, -65px, 0px) !important;
+	}*/
+
+main {
+	min-height: 73vh;
+}
+
+.navbar-collapse {
+	flex-grow: 0;
+}
+
+.sidebar {
+	height: 55vh;
+}
+
+.dropdown-toggle:hover {
+	text-decoration: none;
+}
+
+.dropdown-menu {
+	border: none;
+}
+
+.page-footer {
+	background-color: rgb(236, 255, 245);
+}
+
+.one {
+	/*max-width: 100%;*/
+}
+
+.card-img-overlay {
+	top: 50%;
+	left: 50%;
+	right: unset;
+	bottom: unset;
+	transform: translate(-50%, -50%);
+}
