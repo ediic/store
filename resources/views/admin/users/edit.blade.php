@@ -11,7 +11,6 @@
                     <form action="{{ route('admin.users.update', $user) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        {{-- {{ method_field('PUT') }} --}}
                         @foreach($roles as $role)
                         <div class="form-check">
                             <input type="checkbox" name="roles[]" value="{{ $role->id }}">
