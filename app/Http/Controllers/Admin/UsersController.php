@@ -7,6 +7,7 @@ use App\User;
 use App\Role;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -77,7 +78,7 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        if (Gate::denies('delete-users')) {
+        if (Gate::denies('delete-users') || Auth::user()->id == $user->id) {
             return redirect(route('admin.users.index'));
         }
 
@@ -85,5 +86,32 @@ class UsersController extends Controller
         $user->delete();
 
         return redirect()->route('admin.users.index');
+    }
+
+    public function create()
+    {
+        $users = User::all();
+
+        return view('admin.users.create', compact('users'));
+    }
+
+    public function store()
+    {
+        $validateUser = request()->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $validateRole = request()->validate([
+            'name' => 'required',
+        ]);
+
+        $user = User::create($validateUser);
+        $role = Role::create($validateRole);
+
+        $user->roles()->attach($role);
+
+        return back;
     }
 }

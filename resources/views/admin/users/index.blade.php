@@ -42,6 +42,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                    <a href="{{ route('admin.users.create') }}"><button type="button" class="btn btn-success d-block mx-auto">Add new user</button></a>
 
                 </div>
             </div>
