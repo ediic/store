@@ -7,7 +7,7 @@
 				<form action="{{ route('admin.users.store') }}" method = "POST">
 				  <div class="form-group">
 				    <label for="name">Name</label>
-				    <input class="form-control" name="name" value="{{ old('name') }}">
+				    <input class="form-control" name="name">
 				    <small class="form-text text-muted">{{ $errors->first('name') }}</small>
 				  </div>
 

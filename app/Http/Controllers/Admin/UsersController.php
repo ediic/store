@@ -90,28 +90,28 @@ class UsersController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        // $users = User::all();
 
-        return view('admin.users.create', compact('users'));
+        return view('admin.users.create');
     }
 
     public function store()
     {
         $validateUser = request()->validate([
             'name' => 'required|min:3',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
         ]);
 
         $validateRole = request()->validate([
-            'name' => 'required',
+            'role' => 'required',
         ]);
 
-        $user = User::create($validateUser);
-        $role = Role::create($validateRole);
+        $role = Role::where('role', $validateRole)->first();
 
+        $user = User::create($validateUser);
         $user->roles()->attach($role);
 
-        return back;
+        return redirect(route('admin.users.index'));
     }
 }

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Welcome Title')
+
 @section('content')
 <div class="content container-fluid">
     <div class="row">
@@ -7,8 +9,8 @@
 
             <div class="dropdown sidebar d-flex flex-column justify-content-around">
                 
-                <a href="/user">
-                    user
+                <a href="{{ route('items.store') }}">
+                    Items
                 </a>
 
                 <a href="#">
