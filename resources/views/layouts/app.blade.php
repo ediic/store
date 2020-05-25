@@ -24,24 +24,23 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 
-                <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2" type="submit">Search</button>
-                </form>
-                
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Blugi
-                </a>
-                
+                <a class="navbar-brand" href="{{ url('/') }}">Blugi</a>
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    
+
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
- 
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <form class="form-inline">
+                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success my-2" type="submit">Search</button>
+                        </form>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
